@@ -3,90 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sedulity | Cybersecurity Professional</title>
-    <meta name="description" content="Cybersecurity research, tools, and published content by Sedulity.">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Matthew D. Lestourgeon | Cybersecurity Manager</title>
+    <meta name="description" content="Cybersecurity manager focused on threat prevention, incident response, detection engineering, and security tooling. Builder of tools and teams.">
+    <meta property="og:title" content="Matthew D. Lestourgeon | Cybersecurity Manager">
+    <meta property="og:description" content="Cybersecurity leader. Builder of tools and teams.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%235b8def'/><text x='50' y='68' font-family='sans-serif' font-size='48' font-weight='700' fill='%23fff' text-anchor='middle'>ML</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="site-header">
+    <header class="site-header" id="site-header">
         <nav class="nav-container">
-            <a href="/" class="nav-logo">
-                <span class="logo-icon">&gt;_</span>
-                <span class="logo-text">Sedulity</span>
-            </a>
-            <button class="nav-toggle" aria-label="Toggle navigation">
-                <span></span><span></span><span></span>
+            <a href="/" class="nav-logo">MDL</a>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
             <ul class="nav-links">
-                <li><a href="/" class="active">Home</a></li>
-                <li><a href="tools/">Tools</a></li>
-                <li><a href="blog/">Blog</a></li>
-                <li><a href="projects/">Projects</a></li>
-                <li><a href="resources/">Resources</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="https://linkedin.com/in/yourusername">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="hero-content">
-                <div class="terminal-prompt">
-                    <span class="prompt-symbol">$</span>
-                    <span class="typed-text">whoami</span>
+        <section class="hero" id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-name">Matthew D. Lestourgeon</h1>
+                    <p class="hero-role">Cybersecurity Manager | Cyber Threat Prevention &amp; Incident Response</p>
+                    <p class="hero-tagline">Cybersecurity leader. Builder of tools and teams.</p>
+                    <p class="hero-bio">Cybersecurity manager with a background in military service, focused on threat prevention, incident response, and building the tools and teams that strengthen security operations. Currently leading SOC operations, detection engineering, and security architecture work.</p>
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">View projects</a>
+                        <a href="https://linkedin.com/in/yourusername" class="btn btn-secondary">Get in touch</a>
+                    </div>
                 </div>
-                <h1>Cybersecurity Professional</h1>
-                <p class="hero-subtitle">Security researcher, tool developer, and content creator focused on offensive security, threat analysis, and building tools that make the cyber domain more understandable.</p>
-                <div class="hero-actions">
-                    <a href="projects/" class="btn btn-primary">View Projects</a>
-                    <a href="blog/" class="btn btn-secondary">Read Blog</a>
+            </div>
+            <div class="hero-bg" aria-hidden="true"></div>
+        </section>
+
+        <section class="projects" id="projects">
+            <div class="container">
+                <h2 class="section-heading">Projects</h2>
+                <div class="project-grid">
+
+                    <a href="projects/cybersecurity-career-guide.html" class="project-card" data-animate>
+                        <div class="project-card-body">
+                            <h3 class="project-card-title">Cybersecurity Career Guide</h3>
+                            <p class="project-card-desc">A self-contained, interactive HTML guide covering cybersecurity career paths, certification roadmaps, and skill progression frameworks. Designed for analysts looking to advance from entry-level SOC roles through senior security positions.</p>
+                            <div class="project-card-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Cybersecurity</span>
+                                <span class="tag">Career Development</span>
+                            </div>
+                        </div>
+                        <span class="project-card-status">Completed</span>
+                    </a>
+
+                    <!-- To add a new project, copy the block above and update:
+                         - href: link to the project detail page
+                         - h3: project title
+                         - p: project description
+                         - tags: technologies used
+                         - status: current status -->
+
                 </div>
             </div>
         </section>
 
-        <section class="section-grid">
+        <section class="about" id="about">
             <div class="container">
-                <h2 class="section-title">Published Content</h2>
-                <div class="card-grid">
-                    <a href="tools/" class="card">
-                        <div class="card-icon">&gt;_</div>
-                        <h3>Tools</h3>
-                        <p>Custom security tools, scripts, and utilities built for real-world engagements and research.</p>
-                    </a>
-                    <a href="blog/" class="card">
-                        <div class="card-icon">#</div>
-                        <h3>Blog</h3>
-                        <p>Technical write-ups, vulnerability research, CTF walkthroughs, and industry analysis.</p>
-                    </a>
-                    <a href="projects/" class="card">
-                        <div class="card-icon">/</div>
-                        <h3>Projects</h3>
-                        <p>Larger initiatives, frameworks, and collaborative work in the security space.</p>
-                    </a>
-                    <a href="resources/" class="card">
-                        <div class="card-icon">@</div>
-                        <h3>Resources</h3>
-                        <p>Curated references, cheat sheets, methodologies, and learning materials.</p>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-about">
-            <div class="container">
-                <h2 class="section-title">About</h2>
+                <h2 class="section-heading">About</h2>
                 <div class="about-content">
-                    <p>This site serves as a central hub for my published cybersecurity content &mdash; from tools and scripts I've developed, to research write-ups and curated resources. Everything here is built to be shared, referenced, and put to use.</p>
+                    <p>This site serves as a central hub for cybersecurity projects, tools, and published content. Everything here is built to be shared, referenced, and put to use by the security community.</p>
                 </div>
             </div>
         </section>
     </main>
 
     <footer class="site-footer">
-        <div class="container">
-            <p>&copy; 2026 Sedulity. All rights reserved.</p>
+        <div class="container footer-inner">
+            <div class="footer-links">
+                <a href="https://github.com/yourusername" class="footer-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    GitHub
+                </a>
+                <a href="https://linkedin.com/in/yourusername" class="footer-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    LinkedIn
+                </a>
+            </div>
+            <p class="footer-copy">&copy; 2026 Matthew D. Lestourgeon. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
