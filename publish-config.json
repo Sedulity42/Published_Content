@@ -1,0 +1,15 @@
+{
+  "projects": [
+    {
+      "source": "cybersecurity-career-guide",
+      "target": "cybersecurity-career-guide",
+      "entry": "index.html",
+      "metadata": {
+        "title": "Cybersecurity Career Guide",
+        "description": "Interactive guide covering cybersecurity career paths, certification roadmaps, and skill progression frameworks.",
+        "tags": ["HTML", "CSS", "JavaScript", "Cybersecurity", "Career Development"],
+        "status": "completed"
+      }
+    }
+  ]
+}
