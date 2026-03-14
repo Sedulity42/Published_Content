@@ -118,7 +118,7 @@ def check_index_has_card(project_name):
     if not INDEX_PATH.exists():
         return False
     content = INDEX_PATH.read_text()
-    return f'projects/{project_name}/' in content
+    return f'projects/{project_name}/' in content or f'projects/{project_name}.html' in content
 
 
 # ── Status command ────────────────────────────────────────────────────
@@ -254,7 +254,7 @@ def generate_project_card(project_config):
 
     tags_html = "\n".join(f'                                <span class="tag">{tag}</span>' for tag in tags)
 
-    return f"""                    <a href="projects/{target}.html" class="project-card" data-animate>
+    return f"""                    <a href="projects/{target}/{entry}" class="project-card" data-animate>
                         <div class="project-card-body">
                             <h3 class="project-card-title">{title}</h3>
                             <p class="project-card-desc">{desc}</p>
