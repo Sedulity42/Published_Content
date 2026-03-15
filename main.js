@@ -62,63 +62,79 @@
         });
     }
 
-    // Hero loader — cycling phrases with loading bar
+})();
+
+// Hero loader — cycling phrases with loading bar
+// Isolated IIFE so errors elsewhere cannot prevent this from running
+(function () {
+    'use strict';
+
     var loaderLabel = document.querySelector('.hero-loader-label');
     var loaderFill = document.querySelector('.hero-loader-fill');
 
-    if (loaderLabel && loaderFill) {
-        var phrases = [
-            'Building tools',
-            'Building teams',
-            'Hunting threats',
-            'Deploying countermeasures',
-            'Updating threat intel',
-            'Patching vulnerabilities',
-            'Warming up the SOC',
-            'Correlating log sources',
-            'Enumerating attack surface',
-            'Pondering the orb',
-            'SELECT * FROM skills',
-            'Defragmenting thoughts',
-            'Consulting the RFC',
-            'Loading caffeine.dll',
-            'Reverse engineering Monday'
-        ];
+    if (!loaderLabel || !loaderFill) return;
 
-        // Fisher-Yates shuffle
-        for (var i = phrases.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            var temp = phrases[i];
-            phrases[i] = phrases[j];
-            phrases[j] = temp;
-        }
+    var phrases = [
+        'Building tools',
+        'Building teams',
+        'Hunting threats',
+        'Deploying countermeasures',
+        'Updating threat intel',
+        'Patching vulnerabilities',
+        'Warming up the SOC',
+        'Correlating log sources',
+        'Enumerating attack surface',
+        'Pondering the orb',
+        'SELECT * FROM skills',
+        'Defragmenting thoughts',
+        'Consulting the RFC',
+        'Loading caffeine.dll',
+        'Reverse engineering Monday'
+    ];
 
-        var currentIndex = 0;
-        var FILL_DURATION = 2000;
-        var PAUSE_AFTER = 600;
-        var STEPS = 40;
-        var stepTime = FILL_DURATION / STEPS;
-
-        function runPhrase() {
-            var step = 0;
-            loaderLabel.textContent = phrases[currentIndex] + '...';
-            loaderFill.classList.remove('complete');
-            loaderFill.style.width = '0%';
-
-            var interval = setInterval(function () {
-                step++;
-                loaderFill.style.width = ((step / STEPS) * 100) + '%';
-                if (step >= STEPS) {
-                    clearInterval(interval);
-                    loaderFill.classList.add('complete');
-                    setTimeout(function () {
-                        currentIndex = (currentIndex + 1) % phrases.length;
-                        runPhrase();
-                    }, PAUSE_AFTER);
-                }
-            }, stepTime);
-        }
-
-        runPhrase();
+    // Fisher-Yates shuffle
+    for (var i = phrases.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = phrases[i];
+        phrases[i] = phrases[j];
+        phrases[j] = temp;
     }
+
+    // Set initial text immediately so brackets are never empty
+    loaderLabel.textContent = phrases[0] + '...';
+
+    // If user prefers reduced motion, show static phrase without cycling
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        loaderFill.style.width = '100%';
+        return;
+    }
+
+    var currentIndex = 0;
+    var FILL_DURATION = 2000;
+    var PAUSE_AFTER = 600;
+
+    function runPhrase() {
+        loaderLabel.textContent = phrases[currentIndex] + '...';
+        loaderFill.classList.remove('complete');
+        loaderFill.style.width = '0%';
+
+        var start = null;
+        function step(timestamp) {
+            if (!start) start = timestamp;
+            var progress = Math.min((timestamp - start) / FILL_DURATION, 1);
+            loaderFill.style.width = (progress * 100) + '%';
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            } else {
+                loaderFill.classList.add('complete');
+                setTimeout(function () {
+                    currentIndex = (currentIndex + 1) % phrases.length;
+                    runPhrase();
+                }, PAUSE_AFTER);
+            }
+        }
+        requestAnimationFrame(step);
+    }
+
+    runPhrase();
 })();
