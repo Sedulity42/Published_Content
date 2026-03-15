@@ -17,7 +17,7 @@
 <body>
     <header class="site-header" id="site-header">
         <nav class="nav-container">
-            <a href="/" class="nav-logo">MDL</a>
+            <a href="/" class="nav-logo"><span class="logo-bracket">&gt;</span>MDL<span class="logo-cursor"></span></a>
             <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
                 <span></span>
                 <span></span>
@@ -37,7 +37,16 @@
                 <div class="hero-content">
                     <h1 class="hero-name">Matthew D. Lestourgeon</h1>
                     <p class="hero-role">Cybersecurity Manager | Cyber Threat Prevention &amp; Incident Response</p>
-                    <p class="hero-tagline">Cybersecurity leader. Builder of tools and teams.</p>
+                    <div class="hero-loader" aria-label="Cybersecurity leader. Builder of tools and teams.">
+                        <div class="hero-loader-text">
+                            <span class="hero-loader-bracket">[</span>
+                            <span class="hero-loader-label"></span>
+                            <span class="hero-loader-bracket">]</span>
+                        </div>
+                        <div class="hero-loader-bar">
+                            <div class="hero-loader-fill"></div>
+                        </div>
+                    </div>
                     <p class="hero-bio">Cybersecurity manager with a background in military service, focused on threat prevention, incident response, and building the tools and teams that strengthen security operations. Currently leading SOC operations, detection engineering, and security architecture work.</p>
                     <div class="hero-actions">
                         <a href="#projects" class="btn btn-primary">View projects</a>
