@@ -61,4 +61,64 @@
             el.classList.add('visible');
         });
     }
+
+    // Hero loader — cycling phrases with loading bar
+    var loaderLabel = document.querySelector('.hero-loader-label');
+    var loaderFill = document.querySelector('.hero-loader-fill');
+
+    if (loaderLabel && loaderFill) {
+        var phrases = [
+            'Building tools',
+            'Building teams',
+            'Hunting threats',
+            'Deploying countermeasures',
+            'Updating threat intel',
+            'Patching vulnerabilities',
+            'Warming up the SOC',
+            'Correlating log sources',
+            'Enumerating attack surface',
+            'Pondering the orb',
+            'SELECT * FROM skills',
+            'Defragmenting thoughts',
+            'Consulting the RFC',
+            'Loading caffeine.dll',
+            'Reverse engineering Monday'
+        ];
+
+        // Fisher-Yates shuffle
+        for (var i = phrases.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = phrases[i];
+            phrases[i] = phrases[j];
+            phrases[j] = temp;
+        }
+
+        var currentIndex = 0;
+        var FILL_DURATION = 2000;
+        var PAUSE_AFTER = 600;
+        var STEPS = 40;
+        var stepTime = FILL_DURATION / STEPS;
+
+        function runPhrase() {
+            var step = 0;
+            loaderLabel.textContent = phrases[currentIndex] + '...';
+            loaderFill.classList.remove('complete');
+            loaderFill.style.width = '0%';
+
+            var interval = setInterval(function () {
+                step++;
+                loaderFill.style.width = ((step / STEPS) * 100) + '%';
+                if (step >= STEPS) {
+                    clearInterval(interval);
+                    loaderFill.classList.add('complete');
+                    setTimeout(function () {
+                        currentIndex = (currentIndex + 1) % phrases.length;
+                        runPhrase();
+                    }, PAUSE_AFTER);
+                }
+            }, stepTime);
+        }
+
+        runPhrase();
+    }
 })();
